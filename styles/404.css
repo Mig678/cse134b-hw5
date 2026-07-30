@@ -1,0 +1,34 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+
+  > nav {
+    border-block-end: var(--border);
+    background: var(--panel);
+  }
+
+  > main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-3);
+    text-align: center;
+  }
+}
+
+.not-found-card {
+  max-width: 28rem;
+  padding: var(--space-3);
+  border: var(--border);
+  border-block-start: var(--rule);
+  background: var(--panel);
+}
+
+.not-found-card img {
+  display: block;
+  margin-inline: auto;
+  margin-block-end: var(--space-2);
+}

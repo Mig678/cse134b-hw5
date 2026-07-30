@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-labelledby="t">
+  <title id="t">A dense wedge of aged hard cheese with crunchy crystals</title>
+  <!-- rind base -->
+  <path d="M14 90 L146 90 L146 74 L14 74 Z" fill="#8a5a2b"/>
+  <!-- wedge body -->
+  <path d="M14 74 L80 24 L146 74 Z" fill="#e8c258"/>
+  <!-- aged darker face -->
+  <path d="M80 24 L146 74 L112 74 Z" fill="#d9ae3f"/>
+  <!-- tyrosine crystals -->
+  <circle cx="62" cy="60" r="3" fill="#fff7dd"/>
+  <circle cx="84" cy="52" r="2.5" fill="#fff7dd"/>
+  <circle cx="76" cy="68" r="2.5" fill="#fff7dd"/>
+  <circle cx="100" cy="64" r="3" fill="#fff7dd"/>
+  <circle cx="48" cy="68" r="2" fill="#fff7dd"/>
+</svg>

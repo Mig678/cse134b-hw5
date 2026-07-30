@@ -1,0 +1,47 @@
+body {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: var(--space-3);
+
+  > nav {
+    margin-inline: calc(-1 * var(--space-3));
+    border-block-end: var(--border);
+    background: var(--panel);
+  }
+
+  > footer {
+    clear: both;
+  }
+}
+
+article figure {
+  float: left;
+  width: 11rem;
+  min-height: 14rem;
+  margin: 0 var(--space-2) var(--space-1) 0;
+  padding: var(--space-2);
+  border: var(--border);
+  background: var(--panel);
+}
+
+article figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.board-heading {
+  clear: both;
+}
+
+details {
+  margin-block-end: var(--space-2);
+  padding: var(--space-2);
+  border: var(--border);
+  background: var(--panel);
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: bold;
+}

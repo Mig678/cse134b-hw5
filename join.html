@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join The CSE Cheese Society</title>
+  <meta name="description" content="Sign up for free membership in The CSE Cheese Society and join our monthly tastings.">
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/site.css">
+  <link rel="stylesheet" href="styles/join.css">
+</head>
+<body>
+  <header>
+    <a href="index.html">
+      <img src="images/logo.svg" alt="The CSE Cheese Society logo" width="48" height="48">
+    </a>
+    <h1>The CSE Cheese Society</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="guide/index.html">Guide</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="join.html" aria-current="page">Join</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="form-card">
+      <h2>Join The CSE Cheese Society</h2>
+      <p>Membership is free, meetings are monthly, and the cheese is real. Fill out the form and the Keeper of the Cave will be in touch.</p>
+
+      <form action="#" method="post">
+        <label>
+          Name
+          <input type="text" name="name" required autocomplete="name">
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" required autocomplete="email">
+        </label>
+
+        <label>
+          Which family calls to you?
+          <select name="family" required>
+            <option value="">Choose one&hellip;</option>
+            <option>Fresh</option>
+            <option>Soft-ripened</option>
+            <option>Blue</option>
+            <option>Hard</option>
+            <option>Undecided &mdash; that&rsquo;s why I&rsquo;m here</option>
+          </select>
+        </label>
+
+        <fieldset>
+          <legend>Which of these have you tasted?</legend>
+          <label><input type="checkbox" name="tasted" value="brie"> Brie</label>
+          <label><input type="checkbox" name="tasted" value="roquefort"> Roquefort</label>
+          <label><input type="checkbox" name="tasted" value="aged-gouda"> Aged Gouda</label>
+        </fieldset>
+
+        <label>
+          Tell us your favorite cheese
+          <input type="text" name="favorite" placeholder="e.g. Comte">
+        </label>
+
+        <div class="form-actions">
+          <button type="submit">Sign me up</button>
+          <button type="button" commandfor="why-join" command="show-modal">Why join?</button>
+        </div>
+      </form>
+    </div>
+
+    <dialog id="why-join">
+      <h2>Why join?</h2>
+      <ul>
+        <li>Monthly tastings. The Society buys the cheese. You bring opinions.</li>
+        <li>Voting rights in the Cheese of the Month election.</li>
+        <li>Access to THE CAVE (a mini-fridge, but a very serious one).</li>
+        <li>A laminated membership card featuring the cheese of your choice.</li>
+        <li>Amnesty program for recovering blue-cheese skeptics.</li>
+      </ul>
+      <button type="button" commandfor="why-join" command="close">I&rsquo;m convinced</button>
+    </dialog>
+  </main>
+
+  <footer>
+    <p>The CSE Cheese Society &middot; Cheese responsibly.</p>
+  </footer>
+</body>
+</html>

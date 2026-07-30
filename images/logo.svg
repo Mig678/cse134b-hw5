@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="t">
+  <title id="t">The CSE Cheese Society logo: a cheese wheel with one wedge cut out</title>
+  <!-- wheel with a wedge removed (cut faces toward upper right) -->
+  <path d="M60 60 L60 12 A48 48 0 1 0 94 26 Z" fill="#e8c258" stroke="#8a5a2b" stroke-width="6" stroke-linejoin="round"/>
+  <!-- eyes / holes -->
+  <circle cx="42" cy="52" r="6" fill="#c99f35"/>
+  <circle cx="60" cy="82" r="8" fill="#c99f35"/>
+  <circle cx="82" cy="60" r="5" fill="#c99f35"/>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-labelledby="t">
+  <title id="t">A crumbly wedge of blue cheese with dark veins</title>
+  <!-- wedge -->
+  <path d="M16 92 L80 20 L144 92 Z" fill="#f4eede"/>
+  <!-- crumbly top edge -->
+  <path d="M80 20 L92 36 L84 40 L98 52 Z" fill="#efe6cf"/>
+  <!-- blue veins -->
+  <path d="M62 62 q10 -6 6 -16 M84 74 q-10 -4 -6 -18 q8 -6 4 -14 M104 80 q-6 -10 2 -16 M48 82 q8 -2 6 -12"
+        fill="none" stroke="#5b6ea8" stroke-width="5" stroke-linecap="round"/>
+  <!-- speckles -->
+  <circle cx="70" cy="82" r="3" fill="#5b6ea8"/>
+  <circle cx="94" cy="58" r="3" fill="#5b6ea8"/>
+  <circle cx="56" cy="66" r="2.5" fill="#7383b5"/>
+  <circle cx="112" cy="70" r="2.5" fill="#7383b5"/>
+</svg>

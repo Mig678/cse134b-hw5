@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The CSE Cheese Society</title>
+  <meta name="description" content="Welcome to The CSE Cheese Society — taste, learn, and discuss cheeses from around the world.">
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/site.css">
+  <link rel="stylesheet" href="styles/home.css">
+</head>
+<body>
+  <header>
+    <a href="index.html">
+      <img src="images/logo.svg" alt="The CSE Cheese Society logo" width="48" height="48">
+    </a>
+    <h1>The CSE Cheese Society</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="guide/index.html">Guide</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="join.html">Join</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Welcome to The CSE Cheese Society</h2>
+    <p>We are a community of students, staff, and cheese enthusiasts who gather to taste, learn about, and discuss cheeses from around the world. Whether you are an experienced cheese connoisseur or simply cheese-curious, you are welcome here.</p>
+    <p>Explore our <a href="guide/index.html">cheese guide</a>, learn more <a href="about.html">about the Society</a>, or <a href="join.html">join us</a> at an upcoming tasting.</p>
+    <p>
+      <button type="button" popovertarget="cheese-fact" commandfor="cheese-fact" command="toggle-popover">Cheese Fact</button>
+    </p>
+    <div id="cheese-fact" popover>
+      <p>Cheese is one of the world&rsquo;s oldest prepared foods, with evidence of cheesemaking dating back thousands of years.</p>
+    </div>
+  </main>
+
+  <aside>
+    <h2>Cheese of the Month</h2>
+    <p>This month, we are celebrating blue cheese&mdash;bold, distinctive, and full of character.</p>
+  </aside>
+
+  <footer>
+    <p>The CSE Cheese Society &middot; Cheese responsibly.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,46 @@
+@layer chrome {
+  header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border-block-end: var(--border);
+    background: var(--panel);
+  }
+
+  header img {
+    flex-shrink: 0;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: var(--text-l);
+  }
+
+  nav ul {
+    margin: 0;
+    padding: var(--space-2);
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  nav a[aria-current="page"] {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  footer {
+    padding: var(--space-2) var(--space-3);
+    border-block-start: var(--border);
+    background: var(--panel);
+    font-size: var(--text-s);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}

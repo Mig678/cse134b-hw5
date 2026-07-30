@@ -1,0 +1,83 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+
+  > nav {
+    border-block-end: var(--border);
+    background: var(--panel);
+  }
+
+  > main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-3);
+  }
+}
+
+.form-card {
+  width: 100%;
+  max-width: 28rem;
+  padding: var(--space-3);
+  border: var(--border);
+  border-block-start: var(--rule);
+  background: var(--panel);
+}
+
+.form-card label {
+  display: block;
+  margin-block-end: var(--space-2);
+}
+
+.form-card input[type="text"],
+.form-card input[type="email"],
+.form-card select {
+  display: block;
+  width: 100%;
+  margin-block-start: var(--space-1);
+  padding: var(--space-1);
+  border: var(--border);
+  font: inherit;
+}
+
+.form-card fieldset {
+  margin-block-end: var(--space-2);
+  padding: var(--space-2);
+  border: var(--border);
+}
+
+.form-card fieldset label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-block-end: var(--space-1);
+}
+
+.form-card button[type="submit"] {
+  margin-block-start: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  border: var(--border);
+  background: var(--paper);
+  font: inherit;
+  cursor: pointer;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+dialog {
+  max-width: 28rem;
+  padding: var(--space-3);
+  border: var(--border);
+  background: var(--paper);
+}
+
+dialog ul {
+  padding-inline-start: var(--space-3);
+}

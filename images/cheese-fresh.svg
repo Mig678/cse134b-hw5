@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-labelledby="t">
+  <title id="t">A ball of fresh mozzarella on a small board</title>
+  <!-- board -->
+  <rect x="16" y="92" width="128" height="12" rx="6" fill="#b9863f"/>
+  <!-- mozzarella ball -->
+  <ellipse cx="80" cy="62" rx="42" ry="36" fill="#fbf8f1" stroke="#d9cfba" stroke-width="2"/>
+  <!-- knot on top -->
+  <path d="M66 32 q14 -14 28 0 q-8 8 -14 6 q-6 2 -14 -6 z" fill="#f1ead9" stroke="#d9cfba" stroke-width="2"/>
+  <!-- sheen -->
+  <ellipse cx="64" cy="52" rx="12" ry="7" fill="#ffffff" opacity="0.7"/>
+  <!-- basil leaf -->
+  <path d="M118 82 q16 -12 24 -2 q-10 12 -24 2 z" fill="#5f8f4e"/>
+</svg>
