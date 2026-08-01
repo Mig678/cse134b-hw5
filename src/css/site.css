@@ -354,6 +354,67 @@ project-card article {
   margin: 0;
 }
 
+recent-earthquakes {
+  display: block;
+  margin-top: var(--space-sm);
+  padding: var(--space-md);
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+}
+
+recent-earthquakes .earthquake-ui {
+  margin-top: var(--space-sm);
+}
+
+recent-earthquakes .earthquake-heading {
+  margin: 0 0 var(--space-xs);
+}
+
+recent-earthquakes .earthquake-status {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-text-muted);
+}
+
+recent-earthquakes .earthquake-list {
+  margin: 0 0 var(--space-sm);
+  padding-inline-start: 1.5rem;
+}
+
+recent-earthquakes .earthquake-item + .earthquake-item {
+  margin-top: var(--space-sm);
+}
+
+recent-earthquakes .earthquake-summary {
+  margin: 0 0 var(--space-xs);
+}
+
+recent-earthquakes .earthquake-magnitude {
+  font-weight: 700;
+}
+
+recent-earthquakes .earthquake-attribution {
+  margin: var(--space-sm) 0 0;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+recent-earthquakes .earthquake-retry {
+  margin-top: 0;
+}
+
+recent-earthquakes[data-state="loading"] .earthquake-list {
+  min-height: 2rem;
+}
+
+recent-earthquakes[data-state="ready"] .earthquake-fallback {
+  display: none;
+}
+
+recent-earthquakes[data-state="error"] .earthquake-status {
+  color: var(--color-invalid);
+}
+
 /* Responsive layout */
 @media (min-width: 40rem) {
   header,

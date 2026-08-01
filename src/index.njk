@@ -5,6 +5,8 @@ description: I am a computer science student interested in software development.
 pageHeading: Miguel Lara
 permalink: /
 navKey: home
+scripts:
+  - /js/recent-earthquakes.js
 ---
 
 <section>
@@ -15,4 +17,19 @@ navKey: home
     This portfolio contains information about my background, projects,
     experience, and skills.
   </p>
+</section>
+
+<section>
+  <h2>Recent Earthquakes</h2>
+
+  <recent-earthquakes count="5">
+    <p>
+      Live earthquake data is loaded with JavaScript from the
+      U.S. Geological Survey.
+    </p>
+    <p>
+      <a href="https://earthquake.usgs.gov/">Visit the USGS earthquake site</a>
+      for current information when JavaScript is unavailable.
+    </p>
+  </recent-earthquakes>
 </section>
