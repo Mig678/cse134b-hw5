@@ -1,0 +1,50 @@
+---
+layout: base.njk
+title: Contact | Miguel Lara Portfolio
+description: Send a message through the contact form. This form is currently a structural demonstration and does not send messages yet.
+pageHeading: Contact
+permalink: /contact/
+navKey: contact
+---
+
+<section>
+  <h2>Send a Message</h2>
+
+  <form>
+    <fieldset>
+      <legend>Contact Information</legend>
+
+      <p>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name">
+      </p>
+
+      <p>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email">
+      </p>
+
+      <p>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="6" cols="40"></textarea>
+      </p>
+
+      <button type="submit">Send Message</button>
+    </fieldset>
+  </form>
+</section>
+
+<section>
+  <h2>Contact Notice</h2>
+
+  <dialog open>
+    <p>
+      This contact form is currently a structural demonstration and does
+      not send messages yet.
+    </p>
+  </dialog>
+</section>
+
+<noscript>
+  <p>This site works without JavaScript. The contact form is a structural demonstration and does not send messages yet.</p>
+</noscript>

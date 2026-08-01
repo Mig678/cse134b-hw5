@@ -10,5 +10,10 @@
     {{ content | safe }}
   </main>
   {% include "partials/footer.njk" %}
+  {%- if scripts %}
+  {%- for script in scripts %}
+  <script src="{{ script | url }}" defer></script>
+  {%- endfor %}
+  {%- endif %}
 </body>
 </html>

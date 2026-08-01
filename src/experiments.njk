@@ -1,0 +1,69 @@
+---
+layout: base.njk
+title: Experiments | Miguel Lara Portfolio
+description: HTML experiments demonstrating template, audio, video, canvas, and iframe elements.
+pageHeading: HTML Experiments
+permalink: /experiments/
+navKey: experiments
+scripts:
+  - /js/experiments.js
+---
+
+<section>
+  <h2>Template Example</h2>
+
+  <template>
+    <article>
+      <h3>Hidden Template Content</h3>
+      <p>This content is stored in a template and is not displayed.</p>
+    </article>
+  </template>
+
+  <p>
+    The template element contains HTML that is not rendered unless
+    JavaScript uses it later.
+  </p>
+</section>
+
+<section>
+  <h2>Audio Example</h2>
+
+  <audio controls>
+    <source src="{{ '/media/sample-audio.mp3' | url }}" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</section>
+
+<section>
+  <h2>Video Example</h2>
+
+  <video controls width="400">
+    <source src="{{ '/media/sample-video.mp4' | url }}" type="video/mp4">
+    Your browser does not support the video element.
+  </video>
+</section>
+
+<section>
+  <h2>Canvas Example</h2>
+
+  <canvas id="example-canvas" width="300" height="150">
+    Your browser does not support the canvas element.
+  </canvas>
+</section>
+
+<section>
+  <h2>Iframe Example</h2>
+
+  <iframe
+    srcdoc="<p>This content is displayed inside an iframe.</p>"
+    title="Simple iframe demonstration"
+    width="400"
+    height="150"
+  >
+    Your browser does not support iframes.
+  </iframe>
+</section>
+
+<noscript>
+  <p>The canvas example requires JavaScript to draw on the canvas element.</p>
+</noscript>
