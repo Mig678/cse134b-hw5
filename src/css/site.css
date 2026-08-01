@@ -316,6 +316,19 @@ output {
   color: var(--color-invalid);
 }
 
+project-card {
+  display: block;
+  margin-bottom: var(--space-md);
+  padding: var(--space-md);
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+}
+
+project-card article {
+  margin: 0;
+}
+
 /* Responsive layout */
 @media (min-width: 40rem) {
   header,

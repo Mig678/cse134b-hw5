@@ -6,6 +6,12 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
 
+  eleventyConfig.addCollection("projects", (collectionApi) => {
+    return collectionApi
+      .getFilteredByTag("projects")
+      .sort((a, b) => a.data.order - b.data.order);
+  });
+
   return {
     dir: {
       input: "src",

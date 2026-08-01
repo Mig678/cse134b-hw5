@@ -1,0 +1,24 @@
+---
+layout: base.njk
+title: Projects | Miguel Lara Portfolio
+description: Selected projects including the Piyali Language-Learning App, Dynamic Memory Allocator, and ShadowEval / LLM Rollout and Regression Platform.
+pageHeading: Projects
+permalink: /projects/
+navKey: projects
+---
+
+<section>
+  <h2>Selected Projects</h2>
+
+  {%- for project in collections.projects | sort(attribute="data.order") %}
+  <project-card>
+    <article>
+      <h3>{{ project.data.pageHeading }}</h3>
+
+      <p>{{ project.data.summary }}</p>
+
+      <a href="{{ project.url | url }}">View {{ project.data.pageHeading }}</a>
+    </article>
+  </project-card>
+  {%- endfor %}
+</section>
