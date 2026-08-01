@@ -155,9 +155,34 @@ body > a[href="#main-content"]:focus {
 
 /* Header and navigation */
 header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
   padding: var(--space-md) var(--space-sm);
   background-color: var(--color-surface);
   border-bottom: 0.0625rem solid var(--color-border);
+}
+
+.theme-picker {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-left: auto;
+}
+
+.theme-picker label {
+  margin: 0;
+  font-weight: 600;
+}
+
+.theme-picker select {
+  font: inherit;
+  padding: var(--space-xs) var(--space-sm);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius);
 }
 
 header svg circle {
