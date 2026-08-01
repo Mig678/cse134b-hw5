@@ -1,0 +1,20 @@
+<header>
+  <svg width="60" height="60" aria-label="Simple circle logo">
+    <circle cx="30" cy="30" r="20"></circle>
+  </svg>
+
+  <h1>{{ pageHeading }}</h1>
+
+  <nav aria-label="Main">
+    <ul>
+      {%- for item in site.navigation %}
+      <li>
+        <a
+          href="{{ item.url | url }}"
+          {%- if item.key == navKey %} aria-current="page"{% endif %}
+        >{{ item.label }}</a>
+      </li>
+      {%- endfor %}
+    </ul>
+  </nav>
+</header>

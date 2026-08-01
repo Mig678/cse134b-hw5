@@ -1,0 +1,17 @@
+{
+  "title": "Miguel Lara Portfolio",
+  "author": "Miguel Lara",
+  "year": 2026,
+  "navigation": [
+    { "label": "Home", "url": "/", "key": "home" },
+    { "label": "About", "url": "/about/", "key": "about" },
+    { "label": "Projects", "url": "/projects/", "key": "projects" },
+    { "label": "Experience", "url": "/experience/", "key": "experience" },
+    { "label": "Contact", "url": "/contact/", "key": "contact" },
+    { "label": "Experiments", "url": "/experiments/", "key": "experiments" }
+  ],
+  "social": {
+    "github": "https://github.com/Mig678",
+    "linkedin": "https://linkedin.com/in/miguel-lara-chavez"
+  }
+}
