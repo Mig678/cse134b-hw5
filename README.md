@@ -38,12 +38,12 @@ No theme control appears in the HTML when JavaScript is disabled. The picker is 
 
 ### Enhancement behavior
 
-`js/theme-picker.js` is loaded site-wide from `src/_includes/layouts/base.njk` as `type="module"`. It:
+`js/theme.js` is loaded synchronously from `src/_includes/partials/head.njk` on every page. It:
 
-1. Reads the saved preference from `localStorage` (key: `theme-preference`) inside try/catch blocks
+1. Reads the saved preference from `localStorage` (key: `theme`) inside try/catch blocks
 2. Applies the theme immediately by setting or removing `data-theme` on `<html>`
-3. Inserts a labeled `<select>` into the site header with **System**, **Light**, and **Dark**
-4. Persists the user’s choice on change
+3. Inserts a labeled `<select>` into the site header when the DOM is ready with **System**, **Light**, and **Dark**
+4. Persists the user’s choice on change using explicit `localStorage.setItem("theme", "dark")` and matching root attribute updates
 
 | Selection | Effect on `<html>` |
 |-----------|-------------------|
@@ -57,9 +57,7 @@ The control is built with DOM APIs and `textContent` only (no `innerHTML`, no in
 
 ### Theme flash
 
-The module calls `applyTheme()` as soon as it runs, before creating the visible control. That restores a saved light or dark preference quickly on each page load.
-
-**Limitation:** Because the script is an external ES module, it runs after HTML parsing. The first paint may briefly show the system theme before a stored override is applied. Avoiding that completely would require a synchronous blocking script in `<head>`, which this assignment setup does not use.
+The synchronous head script calls `applyTheme()` before the page renders, which restores a saved light or dark preference and reduces theme flash on reload.
 
 ## Part 2: `<recent-earthquakes>` Web Component
 
