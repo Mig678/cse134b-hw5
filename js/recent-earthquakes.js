@@ -133,28 +133,32 @@ function formatTime(time) {
   return "Unknown time";
 }
 
+const STATE_IDLE = "idle";
+const STATE_LOADING = "loading";
+const STATE_READY = "ready";
+const STATE_ERROR = "error";
+
 class RecentEarthquakes extends HTMLElement {
   static observedAttributes = ["count"];
 
-  #abortController = null;
-  #timeoutId = null;
-  #memoryCache = null;
-  #uiReady = false;
-  #statusEl = null;
-  #listEl = null;
-  #retryBtn = null;
-  #initializedSuccessfully = false;
+  abortController = null;
+  timeoutId = null;
+  memoryCache = null;
+  uiReady = false;
+  statusEl = null;
+  listEl = null;
+  retryBtn = null;
 
   connectedCallback() {
-    this.#ensureUi();
-    this.#setState("idle");
-    this.#statusEl.textContent =
+    this.ensureUi();
+    this.setComponentState(STATE_IDLE);
+    this.statusEl.textContent =
       "Recent earthquake data will load from the U.S. Geological Survey.";
-    this.#loadData();
+    this.loadData();
   }
 
   disconnectedCallback() {
-    this.#cancelRequest();
+    this.cancelRequest();
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -162,18 +166,21 @@ class RecentEarthquakes extends HTMLElement {
       return;
     }
 
-    if (!this.#isUiInitialized()) {
+    if (!this.isUiInitialized()) {
       return;
     }
 
-    const cached = this.#memoryCache || readCache();
+    const cached = this.memoryCache || readCache();
     if (cached && Array.isArray(cached.features)) {
-      this.#renderFeatures(cached.features);
+      this.renderFeatures(cached.features);
       return;
     }
 
-    if (this.dataset.state === "ready" || this.dataset.state === "error") {
-      this.#loadData();
+    if (
+      this.getAttribute("data-state") === STATE_READY ||
+      this.getAttribute("data-state") === STATE_ERROR
+    ) {
+      this.loadData();
     }
   }
 
@@ -184,8 +191,8 @@ class RecentEarthquakes extends HTMLElement {
     return parseCountAttribute(this.getAttribute("count"));
   }
 
-  #ensureUi() {
-    if (this.#uiReady) {
+  ensureUi() {
+    if (this.uiReady) {
       return;
     }
 
@@ -202,77 +209,77 @@ class RecentEarthquakes extends HTMLElement {
     this.appendChild(fragment);
 
     const ui = this.querySelector(".earthquake-ui");
-    this.#statusEl = ui.querySelector(".earthquake-status");
-    this.#listEl = ui.querySelector(".earthquake-list");
-    this.#retryBtn = ui.querySelector(".earthquake-retry");
-    this.#retryBtn.addEventListener("click", () => {
-      this.#loadData(true);
+    this.statusEl = ui.querySelector(".earthquake-status");
+    this.listEl = ui.querySelector(".earthquake-list");
+    this.retryBtn = ui.querySelector(".earthquake-retry");
+    this.retryBtn.addEventListener("click", () => {
+      this.loadData(true);
     });
 
-    this.#uiReady = true;
+    this.uiReady = true;
   }
 
-  #isUiInitialized() {
+  isUiInitialized() {
     return (
-      this.#uiReady &&
-      this.#listEl instanceof Element &&
-      this.#statusEl instanceof Element &&
-      this.#retryBtn instanceof HTMLButtonElement
+      this.uiReady &&
+      this.listEl instanceof Element &&
+      this.statusEl instanceof Element &&
+      this.retryBtn instanceof HTMLButtonElement
     );
   }
 
-  #setState(state) {
-    this.dataset.state = state;
+  setComponentState(state) {
+    this.setAttribute("data-state", state);
   }
 
-  #cancelRequest() {
-    if (this.#timeoutId !== null) {
-      clearTimeout(this.#timeoutId);
-      this.#timeoutId = null;
+  cancelRequest() {
+    if (this.timeoutId !== null) {
+      clearTimeout(this.timeoutId);
+      this.timeoutId = null;
     }
 
-    if (this.#abortController) {
-      this.#abortController.abort();
-      this.#abortController = null;
+    if (this.abortController) {
+      this.abortController.abort();
+      this.abortController = null;
     }
   }
 
-  async #loadData(forceFetch = false) {
-    this.#ensureUi();
+  async loadData(forceFetch = false) {
+    this.ensureUi();
 
     if (!forceFetch) {
-      const cached = this.#memoryCache || readCache();
+      const cached = this.memoryCache || readCache();
       if (cached && Array.isArray(cached.features)) {
-        this.#memoryCache = cached;
-        this.#setState("loading");
-        this.#statusEl.textContent = "Loading recent earthquake data…";
-        this.#retryBtn.hidden = true;
-        this.#renderFeatures(cached.features);
+        this.memoryCache = cached;
+        this.setComponentState(STATE_LOADING);
+        this.statusEl.textContent = "Loading recent earthquake data…";
+        this.retryBtn.hidden = true;
+        this.renderFeatures(cached.features);
         return;
       }
     }
 
-    this.#cancelRequest();
-    this.#setState("loading");
-    this.#statusEl.textContent = "Loading recent earthquake data…";
-    this.#listEl.replaceChildren();
-    this.#retryBtn.hidden = true;
+    this.cancelRequest();
+    this.setComponentState(STATE_LOADING);
+    this.statusEl.textContent = "Loading recent earthquake data…";
+    this.listEl.replaceChildren();
+    this.retryBtn.hidden = true;
 
-    this.#abortController = new AbortController();
-    const { signal } = this.#abortController;
+    this.abortController = new AbortController();
+    const signal = this.abortController.signal;
     let timedOut = false;
 
-    this.#timeoutId = setTimeout(() => {
+    this.timeoutId = setTimeout(() => {
       timedOut = true;
-      this.#abortController.abort();
+      this.abortController.abort();
     }, REQUEST_TIMEOUT_MS);
 
     try {
       const response = await fetch(ENDPOINT, { signal });
 
-      if (this.#timeoutId !== null) {
-        clearTimeout(this.#timeoutId);
-        this.#timeoutId = null;
+      if (this.timeoutId !== null) {
+        clearTimeout(this.timeoutId);
+        this.timeoutId = null;
       }
 
       if (!response.ok) {
@@ -284,7 +291,7 @@ class RecentEarthquakes extends HTMLElement {
         throw new Error("Invalid feed format");
       }
 
-      this.#memoryCache = data;
+      this.memoryCache = data;
       writeCache(data);
 
       if (!this.isConnected) {
@@ -292,18 +299,18 @@ class RecentEarthquakes extends HTMLElement {
       }
 
       if (data.features.length === 0) {
-        this.#setState("idle");
-        this.#statusEl.textContent =
+        this.setComponentState(STATE_IDLE);
+        this.statusEl.textContent =
           "No recent earthquakes were found in the current feed.";
-        this.#listEl.replaceChildren();
+        this.listEl.replaceChildren();
         return;
       }
 
-      this.#renderFeatures(data.features);
+      this.renderFeatures(data.features);
     } catch (error) {
-      if (this.#timeoutId !== null) {
-        clearTimeout(this.#timeoutId);
-        this.#timeoutId = null;
+      if (this.timeoutId !== null) {
+        clearTimeout(this.timeoutId);
+        this.timeoutId = null;
       }
 
       if (!this.isConnected) {
@@ -314,34 +321,34 @@ class RecentEarthquakes extends HTMLElement {
         return;
       }
 
-      this.#setState("error");
-      this.#listEl.replaceChildren();
+      this.setComponentState(STATE_ERROR);
+      this.listEl.replaceChildren();
 
       if (error.name === "AbortError" && timedOut) {
-        this.#statusEl.textContent =
+        this.statusEl.textContent =
           "The earthquake feed timed out after 8 seconds.";
       } else {
-        this.#statusEl.textContent =
+        this.statusEl.textContent =
           "Unable to load recent earthquake data right now.";
       }
 
-      this.#retryBtn.hidden = false;
+      this.retryBtn.hidden = false;
     } finally {
-      this.#abortController = null;
+      this.abortController = null;
     }
   }
 
-  #renderFeatures(features) {
-    if (!this.#isUiInitialized()) {
+  renderFeatures(features) {
+    if (!this.isUiInitialized()) {
       return;
     }
 
-    this.#listEl.replaceChildren();
+    this.listEl.replaceChildren();
     const items = features.slice(0, this.count);
 
     if (items.length === 0) {
-      this.#setState("idle");
-      this.#statusEl.textContent =
+      this.setComponentState(STATE_IDLE);
+      this.statusEl.textContent =
         "No usable earthquake results are available to display.";
       return;
     }
@@ -391,13 +398,12 @@ class RecentEarthquakes extends HTMLElement {
         item.appendChild(link);
       }
 
-      this.#listEl.appendChild(item);
+      this.listEl.appendChild(item);
     }
 
-    this.#initializedSuccessfully = true;
-    this.#setState("ready");
-    this.#statusEl.textContent = `Showing ${items.length} recent earthquake${items.length === 1 ? "" : "s"}.`;
-    this.#retryBtn.hidden = true;
+    this.setComponentState(STATE_READY);
+    this.statusEl.textContent = `Showing ${items.length} recent earthquake${items.length === 1 ? "" : "s"}.`;
+    this.retryBtn.hidden = true;
   }
 }
 

@@ -31,6 +31,8 @@ function applyTheme(preference) {
   } else {
     root.removeAttribute("data-theme");
   }
+
+  root.dataset.themeApplied = preference;
 }
 
 function createThemePicker() {
@@ -49,6 +51,7 @@ function createThemePicker() {
   const select = document.createElement("select");
   select.id = "theme-select";
   select.name = "theme";
+  select.setAttribute("aria-label", "Theme preference");
 
   const options = [
     { value: "system", text: "System" },
