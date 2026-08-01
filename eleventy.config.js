@@ -4,6 +4,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("media");
   eleventyConfig.addPassthroughCopy("js");
+  eleventyConfig.addPassthroughCopy({ "src/css": "css" });
 
   return {
     dir: {

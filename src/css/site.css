@@ -1,0 +1,329 @@
+/* Theme tokens — light defaults */
+:root {
+  color-scheme: light dark;
+
+  --color-text: #1a1a1a;
+  --color-text-muted: #444;
+  --color-bg: #fafafa;
+  --color-surface: #fff;
+  --color-border: #ccc;
+  --color-accent: #0b5cab;
+  --color-accent-hover: #094a8f;
+  --color-focus: #0b5cab;
+  --color-invalid: #b00020;
+  --color-valid: #0d652d;
+
+  --font-family: system-ui, sans-serif;
+  --font-size-base: 1rem;
+  --line-height: 1.6;
+  --max-width: 70ch;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --radius: 0.25rem;
+}
+
+/* System dark when no explicit light override */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --color-text: #f0f0f0;
+    --color-text-muted: #c8c8c8;
+    --color-bg: #121212;
+    --color-surface: #1e1e1e;
+    --color-border: #555;
+    --color-accent: #6db3f2;
+    --color-accent-hover: #9ecbf7;
+    --color-focus: #6db3f2;
+    --color-invalid: #ff6b6b;
+    --color-valid: #6fcf97;
+  }
+}
+
+/* Explicit user overrides (for future theme picker) */
+html[data-theme="light"] {
+  color-scheme: light;
+
+  --color-text: #1a1a1a;
+  --color-text-muted: #444;
+  --color-bg: #fafafa;
+  --color-surface: #fff;
+  --color-border: #ccc;
+  --color-accent: #0b5cab;
+  --color-accent-hover: #094a8f;
+  --color-focus: #0b5cab;
+  --color-invalid: #b00020;
+  --color-valid: #0d652d;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-text: #f0f0f0;
+  --color-text-muted: #c8c8c8;
+  --color-bg: #121212;
+  --color-surface: #1e1e1e;
+  --color-border: #555;
+  --color-accent: #6db3f2;
+  --color-accent-hover: #9ecbf7;
+  --color-focus: #6db3f2;
+  --color-invalid: #ff6b6b;
+  --color-valid: #6fcf97;
+}
+
+/* Base typography */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  margin: 0 0 var(--space-sm);
+}
+
+h2 {
+  font-size: clamp(1.375rem, 3vw, 1.75rem);
+  margin: 0 0 var(--space-sm);
+}
+
+h3 {
+  font-size: 1.125rem;
+  margin: 0 0 var(--space-xs);
+}
+
+p {
+  margin: 0 0 var(--space-sm);
+}
+
+ul,
+ol {
+  margin: 0 0 var(--space-sm);
+  padding-inline-start: 1.5rem;
+}
+
+a {
+  color: var(--color-accent);
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+a:focus-visible {
+  outline: 0.125rem solid var(--color-focus);
+  outline-offset: 0.125rem;
+}
+
+/* Skip link */
+body > a[href="#main-content"] {
+  position: absolute;
+  left: var(--space-sm);
+  top: var(--space-sm);
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transform: translateY(-200%);
+  z-index: 100;
+}
+
+body > a[href="#main-content"]:focus {
+  transform: translateY(0);
+}
+
+/* Header and navigation */
+header {
+  padding: var(--space-md) var(--space-sm);
+  background-color: var(--color-surface);
+  border-bottom: 0.0625rem solid var(--color-border);
+}
+
+header svg circle {
+  fill: none;
+  stroke: var(--color-text);
+  stroke-width: 2;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-sm);
+}
+
+nav a {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-sm);
+  text-decoration: none;
+  border-radius: var(--radius);
+}
+
+nav a[aria-current="page"] {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* Main content */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-sm) var(--space-lg);
+}
+
+main section + section {
+  margin-top: var(--space-lg);
+}
+
+picture,
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Footer */
+footer {
+  padding: var(--space-md) var(--space-sm);
+  background-color: var(--color-surface);
+  border-top: 0.0625rem solid var(--color-border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+footer p {
+  margin: 0;
+}
+
+footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* Forms (contact page baseline) */
+form {
+  max-width: 35rem;
+}
+
+fieldset {
+  margin: 0;
+  padding: var(--space-md);
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+}
+
+legend {
+  padding: 0 var(--space-xs);
+  font-weight: 700;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: var(--space-xs);
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+textarea,
+select {
+  width: 100%;
+  max-width: 100%;
+  padding: var(--space-xs) var(--space-sm);
+  font: inherit;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 0.125rem solid var(--color-focus);
+  outline-offset: 0.125rem;
+}
+
+input:user-valid,
+textarea:user-valid {
+  border-color: var(--color-valid);
+}
+
+input:user-invalid,
+textarea:user-invalid {
+  border-color: var(--color-invalid);
+}
+
+button {
+  margin-top: var(--space-sm);
+  padding: var(--space-xs) var(--space-md);
+  font: inherit;
+  font-weight: 600;
+  color: var(--color-bg);
+  background-color: var(--color-accent);
+  border: 0.0625rem solid transparent;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--color-accent-hover);
+}
+
+output {
+  display: block;
+  margin-top: var(--space-xs);
+  font-size: 0.875rem;
+  color: var(--color-invalid);
+}
+
+/* Responsive layout */
+@media (min-width: 40rem) {
+  header,
+  footer {
+    padding-inline: var(--space-lg);
+  }
+
+  main {
+    padding-inline: var(--space-lg);
+  }
+}
