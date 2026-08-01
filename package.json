@@ -1,0 +1,15 @@
+{
+  "name": "cse134b-hw5",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "CSE 134B HW5 — Miguel Lara portfolio (Eleventy)",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
