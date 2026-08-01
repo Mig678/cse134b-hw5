@@ -1,0 +1,23 @@
+---js
+{
+  pagination: {
+    data: "projects",
+    size: 1,
+    alias: "project",
+  },
+  permalink: (data) => `/projects/${data.project.slug}/`,
+  layout: "project.njk",
+  navKey: "projects",
+  eleventyComputed: {
+    title(data) {
+      return `${data.project.pageHeading} | Miguel Lara Portfolio`;
+    },
+    description(data) {
+      return data.project.summary;
+    },
+    pageHeading(data) {
+      return data.project.pageHeading;
+    },
+  },
+}
+---

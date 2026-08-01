@@ -1,3 +1,5 @@
+import projects from "./src/_data/projects.json" with { type: "json" };
+
 /** @type {import("@11ty/eleventy").UserConfig} */
 export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.svg");
@@ -6,10 +8,14 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
 
-  eleventyConfig.addCollection("projects", (collectionApi) => {
-    return collectionApi
-      .getFilteredByTag("projects")
-      .sort((a, b) => a.data.order - b.data.order);
+  eleventyConfig.addCollection("projects", () => {
+    return projects
+      .slice()
+      .sort((a, b) => a.order - b.order)
+      .map((project) => ({
+        data: project,
+        url: `/projects/${project.slug}/`,
+      }));
   });
 
   return {

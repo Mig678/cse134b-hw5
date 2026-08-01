@@ -31,8 +31,6 @@ function applyTheme(preference) {
   } else {
     root.removeAttribute("data-theme");
   }
-
-  root.dataset.themeApplied = preference;
 }
 
 function createThemePicker() {
@@ -82,5 +80,4 @@ function createThemePicker() {
   header.appendChild(wrapper);
 }
 
-applyTheme(readStoredTheme());
 createThemePicker();

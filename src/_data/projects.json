@@ -1,0 +1,60 @@
+[
+  {
+    "slug": "piyali-language-learning-app",
+    "pageHeading": "Piyali Language-Learning App",
+    "type": "Open-source software contribution",
+    "dates": "May 2025 – Present",
+    "technologies": [
+      "React",
+      "Firebase",
+      "OpenAI TTS API",
+      "Google Cloud Functions",
+      "Node.js"
+    ],
+    "summary": "Built Stories Mode integrating story generation, sentence-level OpenAI TTS playback, speech practice, and XP tracking through Node.js cloud functions.",
+    "details": [
+      "Built Stories Mode integrating story generation, sentence-level OpenAI TTS playback, speech practice, and XP tracking through Node.js cloud functions.",
+      "Refactored reusable speech playback and evaluation components across more than four learning modules.",
+      "Implemented React hooks for audio playback state, sentence progression, XP updates, and speech-evaluation results across bilingual learning flows."
+    ],
+    "order": 1
+  },
+  {
+    "slug": "dynamic-memory-allocator",
+    "pageHeading": "Dynamic Memory Allocator",
+    "dates": "May 2024 – June 2024",
+    "technologies": [
+      "C",
+      "ARM64",
+      "operating systems concepts"
+    ],
+    "summary": "Implemented vmalloc and vmfree using best-fit search and memory-pool management.",
+    "details": [
+      "Implemented vmalloc and vmfree using best-fit search and memory-pool management.",
+      "Implemented block splitting and coalescing to reduce fragmentation.",
+      "Packaged the allocator as the dynamically linked library libvm.so for external programs."
+    ],
+    "order": 2
+  },
+  {
+    "slug": "shadoweval-llm-rollout-regression-platform",
+    "pageHeading": "ShadowEval / LLM Rollout and Regression Platform",
+    "dates": "April 2026 – Present",
+    "technologies": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker",
+      "OpenTelemetry",
+      "pytest",
+      "OpenAI API"
+    ],
+    "summary": "Built an evaluation backend that runs prompt/model regression tests and records pass/fail status, latency, cost, and quality metrics.",
+    "details": [
+      "Built an evaluation backend that runs prompt/model regression tests and records pass/fail status, latency, cost, and quality metrics.",
+      "Implemented deterministic and LLM-as-judge graders for schema, required fields, citations, safety, latency, cost, and quality.",
+      "Designed release-gating outcomes including BLOCK, SHADOW ONLY, CANARY, PROMOTE, and ROLLBACK."
+    ],
+    "order": 3
+  }
+]

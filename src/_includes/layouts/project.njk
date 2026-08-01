@@ -2,16 +2,16 @@
 layout: base.njk
 ---
 <article>
-  {%- if type %}
-  <p><strong>Type:</strong> {{ type }}</p>
+  {%- if project.type %}
+  <p><strong>Type:</strong> {{ project.type }}</p>
   {%- endif %}
 
-  <p><strong>Dates:</strong> {{ dates }}</p>
+  <p><strong>Dates:</strong> {{ project.dates }}</p>
 
   <section>
     <h2>Technologies</h2>
     <ul>
-      {%- for tech in technologies %}
+      {%- for tech in project.technologies %}
       <li>{{ tech }}</li>
       {%- endfor %}
     </ul>
@@ -20,7 +20,7 @@ layout: base.njk
   <section>
     <h2>Details</h2>
     <ul>
-      {%- for item in details %}
+      {%- for item in project.details %}
       <li>{{ item }}</li>
       {%- endfor %}
     </ul>
