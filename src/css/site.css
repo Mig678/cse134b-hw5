@@ -185,10 +185,19 @@ header {
   border-radius: var(--radius);
 }
 
-header svg circle {
-  fill: none;
-  stroke: var(--color-text);
-  stroke-width: 2;
+header .site-logo {
+  display: block;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+header .site-logo img {
+  display: block;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0.0625rem solid var(--color-border);
 }
 
 nav ul {
@@ -339,6 +348,23 @@ output {
   margin-top: var(--space-xs);
   font-size: 0.875rem;
   color: var(--color-invalid);
+}
+
+dialog.contact-notice {
+  display: block;
+  position: static;
+  width: 100%;
+  max-width: 35rem;
+  margin: 0;
+  padding: var(--space-md);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+dialog.contact-notice p {
+  margin: 0;
 }
 
 project-card {
