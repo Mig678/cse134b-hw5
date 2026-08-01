@@ -2,6 +2,18 @@
   "title": "Miguel Lara Portfolio",
   "author": "Miguel Lara",
   "year": 2026,
+  "url": "https://example.netlify.app",
+  "sitemap": [
+    "/",
+    "/about/",
+    "/projects/",
+    "/projects/piyali-language-learning-app/",
+    "/projects/dynamic-memory-allocator/",
+    "/projects/shadoweval-llm-rollout-regression-platform/",
+    "/experience/",
+    "/contact/",
+    "/experiments/"
+  ],
   "navigation": [
     { "label": "Home", "url": "/", "key": "home" },
     { "label": "About", "url": "/about/", "key": "about" },
