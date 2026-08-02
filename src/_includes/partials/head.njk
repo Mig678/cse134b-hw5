@@ -3,5 +3,10 @@
 <meta name="description" content="{{ description }}">
 <link rel="icon" href="{{ '/favicon.svg' | url }}" type="image/svg+xml">
 <link rel="stylesheet" href="{{ '/css/site.css' | url }}">
+{%- if styles %}
+{%- for stylesheet in styles %}
+<link rel="stylesheet" href="{{ stylesheet | url }}">
+{%- endfor %}
+{%- endif %}
 <script src="{{ '/js/theme.js' | url }}"></script>
 <title>{{ title }}</title>
