@@ -21,4 +21,4 @@ jobs:
             git pull origin main
             npm install
             npm run build -- --pathprefix="/members/miguel/"
-            sudo cp -R _site/. /var/www/cse135miguel.site/members/miguel/
+            cp -R _site/. /var/www/cse135miguel.site/members/miguel/
